@@ -11,73 +11,43 @@ namespace dynamic
         public T[] Array;
         public const int gFactor = 2;
         public int capacity;
-        public int size =0;
         public T addValue;
         public int head;
-        public int free;
-  //      public int put;
-
-
+       
         public DynamicArray(T[] array)
         {
             Array = array;
-            free = array.Length - size;
             capacity = array.Length;
-           
         }
    
-   
-
-        //public DynamicQueue(T[] array) : base(array)
-        //{
-        //}
-
         public void Add(T addValue)
         {
-            if (free >= 0)
-            {
-                if(size == Array.Length)
+               if(head == Array.Length)
                 {
-                    capacity = (gFactor * capacity);
-                    Array = new T[capacity];
-                    Console.WriteLine("length" + Array.Length);         //debug
-                    Array[head-1] = addValue;
-                    
-                    size++;
-                    head++;
+                capacity = (gFactor * capacity);
+                /*looks like one more method*/
+                T[] tempArray;                     //add temp array
+                tempArray = new T[Array.Length];    
+                Array.CopyTo(tempArray, 0);         //copy Array to tempArray
+                /******************************/
+               Array = new T[capacity];             //New capacity for Array
+               tempArray.CopyTo(Array, 0);          //copy temArray to Array
+               Array[head] = addValue;
+               head++;
+        }
 
-                    Console.WriteLine("free__" + free);         //debug
-                    Console.WriteLine("head__" + head);         //debug
-                    Console.WriteLine("size__" + size);        //debug
-                    Console.WriteLine("capacity__" + capacity);         //debug
-                    Console.WriteLine("[{0}]", string.Join(", ", Array));
-
-
-                }
-
-                else if (size < Array.Length)
+                else if (head < Array.Length)
                 {
                     Array[head] = addValue;
-                    size++;
                     head++;
-                    Console.WriteLine("free__" + free);         //debug
-                    Console.WriteLine("head__" + head);         //debug
-                    Console.WriteLine("size__" + size);        //debug
-                    Console.WriteLine("capacity__" + capacity);         //debug
-                    Console.WriteLine("[{0}]", string.Join(", ", Array));
+                    //Console.WriteLine("head__" + head);         //debug
+                    //Console.WriteLine("capacity__" + capacity);         //debug
+                    //Console.WriteLine("[{0}]", string.Join(", ", Array));
                 }
-                free--;
-              
+  
             }
 
 
-
-
-
-
-
-
-        }
 
         public  void Print()
         {
