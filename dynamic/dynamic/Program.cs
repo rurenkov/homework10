@@ -25,12 +25,13 @@ namespace dynamic
 
 
             int addValue = 0;
-            int capacity = 0;   
+            int  capacity = 0;
+            int IndexToInsert = 0;
             int[] array1;
 
-            Console.WriteLine("Enter the capacity of array \n");
-            ParceD(ref capacity);                     //parce value which needs to be added
-            array1 = new int[capacity];
+           // Console.WriteLine("Enter the capacity of array \n");
+           // ParceD(ref capacity);                     //parce value which needs to be added
+            array1 = new int[6] {5,4,8,0,0,0};
             DynamicArray<int> dynamicArray = new DynamicArray<int>(array1);
 
 
@@ -38,28 +39,29 @@ namespace dynamic
 
             while (free1 > 0)
             {
-                Console.WriteLine("To add value press :1, to delete value press :2, to exit press: 3 \n");
+                Console.WriteLine("To add value press :1, to insert :2, to exit press: 3 \n");
 
                 ParceD(ref choise);
                 switch (choise)
                 {
                     case 1:
                 
-                 
-
-
                         Console.WriteLine("Enter what you want to add \n");
                         ParceD( ref addValue);                     //parce value which needs to be added
 
                         dynamicArray.Add(addValue);
                         dynamicArray.Print();
+
                         break;
 
                     case 2:
 
-                    //    myqueue.Dequeue();
-                   //     buffer.Print(array4);
-
+                        Console.WriteLine("Enter what you want to Insert \n");
+                        ParceD(ref addValue);
+                        Console.WriteLine("Enter # of Index to insert \n");
+                        ParceD(ref IndexToInsert);
+                        dynamicArray.Insert(addValue,IndexToInsert);
+                        dynamicArray.Print();
                         break;
                     case 3:
 

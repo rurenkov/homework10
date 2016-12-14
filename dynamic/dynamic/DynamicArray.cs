@@ -13,19 +13,62 @@ namespace dynamic
         public int capacity;
         public T addValue;
         public int head;
+        public int size=3;
+        public int IndexToInsert;
        
         public DynamicArray(T[] array)
         {
             Array = array;
             capacity = array.Length;
         }
-   
+
+
+
+        public void Remove(int IndexToInsert)  // not logical name of index 
+        {
+            for (int i = IndexToInsert; i < (size - 1); i++)          //move all elements to the left until deleted index reached
+            {
+                Array[i] = Array[i + 1];
+            }
+            size--;
+        }
+
+
+
+        public T Get (int IndexToInsert)
+        {
+            return Array[IndexToInsert];
+        }
+
+    
+        public void Insert(T addValue, int IndexToInsert)
+        {
+            if (IndexToInsert > size && IndexToInsert < capacity)
+            {
+                Array[IndexToInsert] = addValue;
+            }
+
+
+            else if (IndexToInsert<size && IndexToInsert < capacity)
+            {
+
+                for (int i = size; i >= IndexToInsert; i--)  //move  to  right
+                {
+                    Array[i] = Array[i - 1];
+                }
+                Array[IndexToInsert] = addValue;                //insert 
+                size++;
+            }
+
+        }
+        
+        
         public void Add(T addValue)
         {
                if(head == Array.Length)
                 {
                 capacity = (gFactor * capacity);
-                /*looks like one more method*/
+             
                 T[] tempArray;                     //add temp array
                 tempArray = new T[Array.Length];    
                 Array.CopyTo(tempArray, 0);         //copy Array to tempArray
