@@ -1,0 +1,6 @@
+D:\vet\sharp\homework10\dynamic\dynamic\bin\Debug\dynamic.exe.config
+D:\vet\sharp\homework10\dynamic\dynamic\bin\Debug\dynamic.exe
+D:\vet\sharp\homework10\dynamic\dynamic\bin\Debug\dynamic.pdb
+D:\vet\sharp\homework10\dynamic\dynamic\obj\Debug\dynamic.csprojResolveAssemblyReference.cache
+D:\vet\sharp\homework10\dynamic\dynamic\obj\Debug\dynamic.exe
+D:\vet\sharp\homework10\dynamic\dynamic\obj\Debug\dynamic.pdb
