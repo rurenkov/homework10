@@ -16,26 +16,20 @@ namespace dynamic
             }
         }
 
-
-
         static void Main(string[] args)
         {
             int choise = 0;  //some internal 
             int free1 = 1;  //some internal     
-
 
             int addValue = 0;
             int  capacity = 0;
             int IndexToInsert = 0;
             int[] array1;
 
-           // Console.WriteLine("Enter the capacity of array \n");
-           // ParceD(ref capacity);                     //parce value which needs to be added
+            Console.WriteLine("Enter the capacity of array \n");
+            ParceD(ref capacity);                     //parce value which needs to be added
             array1 = new int[capacity];
             DynamicArray<int> dynamicArray = new DynamicArray<int>(array1);
-
-
-
 
             while (free1 > 0)
             {
@@ -48,7 +42,6 @@ namespace dynamic
                 
                         Console.WriteLine("Enter what you want to add \n");
                         ParceD( ref addValue);                     //parce value which needs to be added
-
                         dynamicArray.Add(addValue);
                         dynamicArray.Print();
 

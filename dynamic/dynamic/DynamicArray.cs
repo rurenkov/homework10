@@ -12,10 +12,9 @@ namespace dynamic
         public const int gFactor = 2;
         public int capacity;
         public T addValue;
-        public int head;
-        public int size=0;
+        public int size;
         public int IndexToInsert;
-       
+
         public DynamicArray(T[] array)
         {
             Array = array;
@@ -23,12 +22,12 @@ namespace dynamic
         }
 
 
-    
-        public void Insert(T addValue, int IndexToInsert)
+       public void Insert(T addValue, int IndexToInsert)
         {
-            if (IndexToInsert > size && IndexToInsert < capacity)
+            if (IndexToInsert >= size && IndexToInsert < capacity)
             {
-                Array[IndexToInsert] = addValue;
+                Console.WriteLine("index is out of size");
+                //Array[IndexToInsert] = addValue;
             }
 
             else if (IndexToInsert<size && IndexToInsert < capacity)
@@ -47,24 +46,19 @@ namespace dynamic
         
         public void Add(T addValue)
         {
-               if(head == Array.Length)
+               if(size == Array.Length)
                 {
                 capacity = (gFactor * capacity);
-             
-                T[] tempArray;                     //add temp array
-                tempArray = new T[Array.Length];    
-                Array.CopyTo(tempArray, 0);         //copy Array to tempArray
-                /******************************/
-               Array = new T[capacity];             //New capacity for Array
-               tempArray.CopyTo(Array, 0);          //copy temArray to Array
-               Array[head] = addValue;
-               head++;
+
+                copyArray(capacity);
+                Array[size] = addValue;
+               size++;
         }
 
-                else if (head < Array.Length)
+                else if (size < Array.Length)
                 {
-                    Array[head] = addValue;
-                    head++;
+                    Array[size] = addValue;
+                    size++;
          }
   
             }
@@ -76,17 +70,29 @@ namespace dynamic
                 Array[i] = Array[i + 1];
             }
             size--;
+            if ((capacity-size)>=size)
+            {
+                capacity = (capacity / gFactor);
+                copyArray(capacity);
+                
+            }
         }
 
+        public void copyArray(int capacity)
+        {
+            T[] tempArray;                     //add temp array
+            tempArray = new T[Array.Length];
+            Array.CopyTo(tempArray, 0);         //copy Array to tempArray
+            Array = new T[capacity];             //New capacity for Array
+            tempArray.CopyTo(Array, 0);
+        }
 
 
         public T Get(int IndexToInsert)  // not logical name of index 
         {
             return Array[IndexToInsert];
         }
-
-
-        
+       
         public void Print()
         {
 
