@@ -22,14 +22,14 @@ namespace dynamic
             int free1 = 1;  //some internal     
 
             int addValue = 0;
-            int  capacity = 0;
+            int  capacity = 1;
             int IndexToInsert = 0;
             int[] array1;
 
-            Console.WriteLine("Enter the capacity of array \n");
-            ParceD(ref capacity);                     //parce value which needs to be added
+            //Console.WriteLine("Enter the capacity of array \n");
+            //ParceD(ref capacity);                     //parce value which needs to be added
             array1 = new int[capacity];
-            DynamicArray<int> dynamicArray = new DynamicArray<int>(array1);
+            DynamicArray<int> dynamicArray = new DynamicArray<int>();
 
             while (free1 > 0)
             {
@@ -59,18 +59,13 @@ namespace dynamic
                     case 3:
 
                         {
-                            //free1 = 0;
-                            dynamicArray.SizeOfArray();
+                            free1 = 0;
+                            
                         }
                         break;
                 }
             }
 
-            /*  DynamicArray.Push(put);
-              DynamicArray.Print();
-              DynamicArray.Peek();
-              DynamicArray.Pop();
-  */
             Console.ReadLine();
 
           

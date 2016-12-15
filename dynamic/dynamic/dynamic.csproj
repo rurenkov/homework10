@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dynamic.cs" />
     <Compile Include="DynamicArray.cs" />
     <Compile Include="DynamicQueue.cs" />
     <Compile Include="DynamicStack.cs" />

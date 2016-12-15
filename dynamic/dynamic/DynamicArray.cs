@@ -6,34 +6,33 @@ using System.Threading.Tasks;
 
 namespace dynamic
 {
-    public  class DynamicArray<T>
+    public  class DynamicArray<T>: Dynamic<T>
     {
-        public T[] Array;
         public const int gFactor = 2;
-        public int capacity;
+        public int capacity=1;
         public T addValue;
         public int size;
         public int IndexToInsert;
 
-        public DynamicArray(T[] array)
+        public DynamicArray()
         {
-            Array = array;
-            capacity = array.Length;
+            Array = new T [capacity] ;
+            //capacity = array.Length;
         }
 
 
-       public void Insert(T addValue, int IndexToInsert)
+       public override void Insert(T addValue, int IndexToInsert)
         {
             if (IndexToInsert >= size && IndexToInsert < capacity)
             {
                 Console.WriteLine("index is out of size");
-                //Array[IndexToInsert] = addValue;
+   
             }
 
             else if (IndexToInsert<size && IndexToInsert < capacity)
             {
 
-                for (int i = size; i >= IndexToInsert; i--)  //move  to  right
+                for (int i = size; i > IndexToInsert; i--)  //move  to  right
                 {
                     if (size == Array.Length)       // if array is full , so add capacity
                     {
@@ -51,7 +50,7 @@ namespace dynamic
         }
         
         
-        public void Add(T addValue)
+        public override void Add(T addValue)
         {
                if(size == Array.Length)
                 {
@@ -70,7 +69,7 @@ namespace dynamic
   
             }
 
-        public void Remove(int IndexToInsert)  // not logical name of index 
+        public override void Remove(int IndexToInsert)  // not logical name of index 
         {
             for (int i = IndexToInsert; i < (size - 1); i++)          //move elements to left
             {
@@ -95,7 +94,7 @@ namespace dynamic
         }
 
       
-        public T Get(int IndexToInsert)  // not logical name of index 
+        public override T  Get(int IndexToInsert)  // not logical name of index 
         {
             return Array[IndexToInsert];
         }
