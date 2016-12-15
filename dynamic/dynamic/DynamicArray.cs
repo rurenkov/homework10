@@ -35,7 +35,14 @@ namespace dynamic
 
                 for (int i = size; i >= IndexToInsert; i--)  //move  to  right
                 {
-                    Array[i] = Array[i - 1];
+                    if (size == Array.Length)       // if array is full , so add capacity
+                    {
+                        capacity = (gFactor * capacity);
+                        copyArray(capacity);
+                        Array[i] = Array[i - 1];
+                    }
+                    
+                     Array[i] = Array[i - 1]; 
                 }
                 Array[IndexToInsert] = addValue;                //insert 
                 size++;
@@ -87,7 +94,7 @@ namespace dynamic
             tempArray.CopyTo(Array, 0);
         }
 
-
+      
         public T Get(int IndexToInsert)  // not logical name of index 
         {
             return Array[IndexToInsert];

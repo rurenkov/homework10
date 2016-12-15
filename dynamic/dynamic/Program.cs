@@ -59,8 +59,8 @@ namespace dynamic
                     case 3:
 
                         {
-                            free1 = 0;
-
+                            //free1 = 0;
+                            dynamicArray.SizeOfArray();
                         }
                         break;
                 }
