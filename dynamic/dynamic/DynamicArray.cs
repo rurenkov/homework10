@@ -13,7 +13,7 @@ namespace dynamic
         public int capacity;
         public T addValue;
         public int head;
-        public int size=3;
+        public int size=0;
         public int IndexToInsert;
        
         public DynamicArray(T[] array)
@@ -23,23 +23,6 @@ namespace dynamic
         }
 
 
-
-        public void Remove(int IndexToInsert)  // not logical name of index 
-        {
-            for (int i = IndexToInsert; i < (size - 1); i++)          //move all elements to the left until deleted index reached
-            {
-                Array[i] = Array[i + 1];
-            }
-            size--;
-        }
-
-
-
-        public T Get (int IndexToInsert)
-        {
-            return Array[IndexToInsert];
-        }
-
     
         public void Insert(T addValue, int IndexToInsert)
         {
@@ -47,7 +30,6 @@ namespace dynamic
             {
                 Array[IndexToInsert] = addValue;
             }
-
 
             else if (IndexToInsert<size && IndexToInsert < capacity)
             {
@@ -83,16 +65,29 @@ namespace dynamic
                 {
                     Array[head] = addValue;
                     head++;
-                    //Console.WriteLine("head__" + head);         //debug
-                    //Console.WriteLine("capacity__" + capacity);         //debug
-                    //Console.WriteLine("[{0}]", string.Join(", ", Array));
-                }
+         }
   
             }
 
+        public void Remove(int IndexToInsert)  // not logical name of index 
+        {
+            for (int i = IndexToInsert; i < (size - 1); i++)          //move elements to left
+            {
+                Array[i] = Array[i + 1];
+            }
+            size--;
+        }
 
 
-        public  void Print()
+
+        public T Get(int IndexToInsert)  // not logical name of index 
+        {
+            return Array[IndexToInsert];
+        }
+
+
+        
+        public void Print()
         {
 
             Console.WriteLine("[{0}]", string.Join(", ", Array));

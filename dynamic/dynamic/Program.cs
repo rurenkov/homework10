@@ -31,7 +31,7 @@ namespace dynamic
 
            // Console.WriteLine("Enter the capacity of array \n");
            // ParceD(ref capacity);                     //parce value which needs to be added
-            array1 = new int[6] {5,4,8,0,0,0};
+            array1 = new int[capacity];
             DynamicArray<int> dynamicArray = new DynamicArray<int>(array1);
 
 
