@@ -6,30 +6,31 @@ using System.Threading.Tasks;
 
 namespace dynamic
 {
-    public  class DynamicArray<T>: Dynamic<T>
+    public class DynamicArray<T> : Dynamic<T>
     {
         public const int gFactor = 2;
-        public int capacity=1;
+        public int capacity = 1;
         public T addValue;
         public int size;
         public int IndexToInsert;
+        public int maxSize=10;
 
         public DynamicArray()
         {
-            Array = new T [capacity] ;
+            Array = new T[capacity];
             //capacity = array.Length;
         }
 
 
-       public override void Insert(T addValue, int IndexToInsert)
+        public override void Insert(T addValue, int IndexToInsert)
         {
             if (IndexToInsert >= size && IndexToInsert < capacity)
             {
                 Console.WriteLine("index is out of size");
-   
+
             }
 
-            else if (IndexToInsert<size && IndexToInsert < capacity)
+            else if (IndexToInsert < size && IndexToInsert < capacity)
             {
 
                 for (int i = size; i > IndexToInsert; i--)  //move  to  right
@@ -40,34 +41,34 @@ namespace dynamic
                         copyArray(capacity);
                         Array[i] = Array[i - 1];
                     }
-                    
-                     Array[i] = Array[i - 1]; 
+
+                    Array[i] = Array[i - 1];
                 }
                 Array[IndexToInsert] = addValue;                //insert 
                 size++;
             }
 
         }
-        
-        
+
+
         public override void Add(T addValue)
         {
-               if(size == Array.Length)
-                {
+            if (size == Array.Length)
+            {
                 capacity = (gFactor * capacity);
 
                 copyArray(capacity);
                 Array[size] = addValue;
-               size++;
-        }
-
-                else if (size < Array.Length)
-                {
-                    Array[size] = addValue;
-                    size++;
-         }
-  
+                size++;
             }
+
+            else if (size < Array.Length)
+            {
+                Array[size] = addValue;
+                size++;
+            }
+
+        }
 
         public override void Remove(int IndexToInsert)  // not logical name of index 
         {
@@ -76,11 +77,11 @@ namespace dynamic
                 Array[i] = Array[i + 1];
             }
             size--;
-            if ((capacity-size)>=size)
+            if ((capacity - size) >= size)
             {
                 capacity = (capacity / gFactor);
                 copyArray(capacity);
-                
+
             }
         }
 
@@ -93,12 +94,12 @@ namespace dynamic
             tempArray.CopyTo(Array, 0);
         }
 
-      
-        public override T  Get(int IndexToInsert)  // not logical name of index 
+
+        public override T Get(int IndexToInsert)  // not logical name of index 
         {
             return Array[IndexToInsert];
         }
-       
+
         public void Print()
         {
 
