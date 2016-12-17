@@ -1,83 +1,76 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace dynamic
-//{
-//    public class DynamicStack<T>
-//    {
-
-
-//        DynamicArray<T> dynamicArray = new DynamicArray<T>();
+namespace dynamic
+{
+    public class DynamicStack<T>
+    {
 
 
-
-
-
-
-//        //*******************************************************//
-//        // push method;
-//        //*******************************************************//
-//        public void Push(T put)
-//        {
-
-//            if (top != Array.Length)
-//            {
-//                Console.WriteLine("PUT_ " + put);         //debug
-//                Array[top] = put;
-//                top++;
-//                Console.WriteLine("array top_ " + Array[top]);         //debug
-//            }
-//            Console.WriteLine("top_push_" + top);         //debug
-
-
-//        }
-
-//        //*******************************************************//
-//        // pop method;
-//        //*******************************************************//
-//        public T Pop()
-//        {
-
-//            if (top > 0)
-//            {
-//                Array[top - 1] = Array[0];
-//                top--;
-//            }
-
-//            Console.WriteLine("top_pop_" + top);
-//            return Array[top];
-
-//        }
-//        //*******************************************************//
-//        // peek method;
-//        //*******************************************************//
-
-//        public T Peek()
-//        {
-
-
-//            return Array[top - 1];
-
-//        }
-
-
-//        public override void Print()
-//        {
-
-//            Console.WriteLine("[{0}]", string.Join(", ", Array));
-
-//        }
-
-
-//    }*/
+        DynamicArray<T> dynamicArray = new DynamicArray<T>();
+        private T size;
 
 
 
 
 
 
-//    }
-//}
+        //*******************************************************//
+        // push method;
+        //*******************************************************//
+        public void Push(T put)
+        {
+
+            dynamicArray.Add(put);
+
+
+        }
+
+        //*******************************************************//
+        // pop method;
+        //*******************************************************//
+        public T Pop()
+        {
+
+            int size=dynamicArray.size - 1;
+
+           
+            dynamicArray.Remove(dynamicArray.size - 1);                  
+            return this.size;
+
+        }
+        //*******************************************************/
+        // peek method;
+        //*******************************************************//
+
+        public T Peek()
+        {
+
+            int size = dynamicArray.size-1;
+            //size = size - 1;
+            return this.size;
+           
+
+        }
+
+
+        public  void Print()
+        {
+
+            Console.WriteLine("[{0}]", string.Join(", ", dynamicArray.Array));
+
+        }
+
+
+    }
+
+
+
+
+
+
+    }
+

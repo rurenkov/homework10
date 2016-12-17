@@ -30,7 +30,7 @@ namespace dynamic
 
             }
 
-            else if (IndexToInsert < size && IndexToInsert < capacity)
+            else if (IndexToInsert < size)
             {
 
                 for (int i = size; i > IndexToInsert; i--)  //move  to  right
